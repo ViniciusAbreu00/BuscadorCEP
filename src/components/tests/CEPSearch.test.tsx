@@ -3,15 +3,15 @@ import { MemoryRouter } from "react-router-dom";
 import CEPSearch from "../CEPSearch/CEPSearch";
 import '@testing-library/jest-dom/extend-expect';
 
-describe("Na tela principal", () => {
-  describe("Quando abro o App", () => {
-    it("O nome do App é mostrado", () => {
+describe("Na tela de busca por CEP", () => {
+  describe("Quando a tela é iniciada", () => {
+    it("O campo do CEP é exibido", () => {
       render(
         <MemoryRouter>
           <CEPSearch />
         </MemoryRouter>
       );
-      expect(screen.getByText("BuscadorCEP!")).toBeInTheDocument( );
+      expect(screen.getByTestId("cepField")).toBeInTheDocument();
     });
   });
 });

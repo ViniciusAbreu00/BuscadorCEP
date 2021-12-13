@@ -89,7 +89,7 @@ export default function AdressSearch() {
   const [cidadesValue, seiCidadesValue] = useState<CidadesTypes>();
   const [rua, setRua] = useState([]);
   const [cepResponse, setCepResponse] = useState<CepResponses>();
-  const [loadingCep, setLoadingCep] = useState(false)
+  const [loadingCep, setLoadingCep] = useState(false);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -113,7 +113,7 @@ export default function AdressSearch() {
   }, [estadosValue]);
 
   const searchCEP = () => {
-    setLoadingCep(true)
+    setLoadingCep(true);
     axios
       .get(
         `https://viacep.com.br/ws/${estadosValue?.sigla}/${cidadesValue?.nome}/${rua}/json/`
@@ -121,8 +121,9 @@ export default function AdressSearch() {
       .then(({ data }) => {
         handleOpen();
         setCepResponse(data[0]);
-        setLoadingCep(false)
-      }).catch(() => setLoadingCep(false));
+        setLoadingCep(false);
+      })
+      .catch(() => setLoadingCep(false));
   };
 
   const goToHome = () => {
@@ -176,7 +177,12 @@ export default function AdressSearch() {
                 disableCloseOnSelect
                 style={{ marginBottom: 16, padding: "10px" }}
                 renderInput={(params) => (
-                  <TextField {...params} fullWidth label="Estado" />
+                  <TextField
+                    {...params}
+                    inputProps={{ "data-testid": "estadoField" }}
+                    fullWidth
+                    label="Estado"
+                  />
                 )}
               />
 
@@ -192,7 +198,12 @@ export default function AdressSearch() {
                 disableCloseOnSelect
                 style={{ marginBottom: 16, padding: "10px" }}
                 renderInput={(params) => (
-                  <TextField {...params} fullWidth label="Cidade" />
+                  <TextField
+                    {...params}
+                    inputProps={{ "data-testid": "cidadeField" }}
+                    fullWidth
+                    label="Cidade"
+                  />
                 )}
               />
 
@@ -203,18 +214,25 @@ export default function AdressSearch() {
                 fullWidth
                 label="Logradouro"
                 placeholder="Rua Padre João..."
+                inputProps={{ "data-testid": "ruaField" }}
               />
-              <div style={{display: 'flex'}}>
-             
-              <Button style={{ marginLeft: "2%", marginTop: 16 }} variant='outlined' fullWidth onClick={() => goToHome()}>Voltar</Button>
-              <Button
-                style={{ marginLeft: "2%", marginTop: 16 }}
-                onClick={() => searchCEP()}
-                fullWidth
-                variant="contained"
-              >
-                Pesquisar
-              </Button>
+              <div style={{ display: "flex" }}>
+                <Button
+                  style={{ marginLeft: "2%", marginTop: 16 }}
+                  variant="outlined"
+                  fullWidth
+                  onClick={() => goToHome()}
+                >
+                  Voltar
+                </Button>
+                <Button
+                  style={{ marginLeft: "2%", marginTop: 16 }}
+                  onClick={() => searchCEP()}
+                  fullWidth
+                  variant="contained"
+                >
+                  Pesquisar
+                </Button>
               </div>
             </Stack>
           </form>

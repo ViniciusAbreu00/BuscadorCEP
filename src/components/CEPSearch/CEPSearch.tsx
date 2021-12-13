@@ -80,6 +80,7 @@ export default function CEPSearch() {
               onBlur={onCepBlur}
               error={formik.touched.cpfValue && Boolean(formik.errors.cpfValue)}
               helperText={formik.touched.cpfValue && formik.errors.cpfValue}
+              inputProps={{"data-testid": "cepField"}}
               fullWidth
             />
           </form>
