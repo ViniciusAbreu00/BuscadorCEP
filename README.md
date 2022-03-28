@@ -16,7 +16,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
 ## 🚀 Instalando BuscadorCEP
 
-Para instalar o <nome_do_projeto>, siga estas etapas:
+Para instalar o BuscadorCEP, siga estas etapas:
 
 Linux e macOS:
 ```
@@ -36,7 +36,7 @@ Dentro da pasta do arquivo executar o comando:
 
 ## ☕ Usando BuscadorCEP!
 
-Para usar <>, siga estas etapas:
+Siga estas etapas:
 
 ```
 npm start (Para rodar o projeto em seu navegador)
